@@ -1,0 +1,27 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="field" cx="35%" cy="72%" r="90%">
+      <stop offset="0%" stop-color="#152219"/>
+      <stop offset="55%" stop-color="#0E1A11"/>
+      <stop offset="100%" stop-color="#0A140C"/>
+    </radialGradient>
+    <linearGradient id="rise" x1="300" y1="724" x2="640" y2="384" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#B8860B"/>
+      <stop offset="100%" stop-color="#C8A05A"/>
+    </linearGradient>
+    <linearGradient id="ahead" x1="640" y1="384" x2="872" y2="152" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#C8A05A" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#C8A05A" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="warmth" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#C8A05A" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#C8A05A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#field)"/>
+  <circle cx="300" cy="724" r="200" fill="url(#warmth)"/>
+  <line x1="300" y1="724" x2="640" y2="384" stroke="url(#rise)" stroke-width="17" stroke-linecap="round"/>
+  <line x1="640" y1="384" x2="872" y2="152" stroke="url(#ahead)" stroke-width="15" stroke-linecap="round"/>
+  <circle cx="300" cy="724" r="88" fill="#B8860B"/>
+  <circle cx="640" cy="384" r="52" fill="#C8A05A"/>
+</svg>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Stoic Journey — a steadier mind, a little each day</title>
+  <meta name="description" content="The Stoic Journey: a meditation each day, guided paths, and the complete Stoic source texts. Free, no ads, works offline. Coming to the App Store, August 2026.">
+  <link rel="icon" href="/stoic/icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest: #0E1A11;
+      --surface: #141E16;
+      --surface-2: #1B3022;
+      --parchment: #F2EADA;
+      --muted: #9AA89E;
+      --copper: #B8860B;
+      --gold: #C8A05A;
+      --serif: "Spectral", Georgia, "Times New Roman", serif;
+      --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--forest);
+      color: var(--parchment);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(200, 160, 90, 0.35);
+      transition: border-color 160ms ease, color 160ms ease;
+    }
+    a:hover { border-bottom-color: var(--gold); }
+    a:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    /* Circuit-trace ornament: copper node → fading gold rule → smaller gold node */
+    .trace {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    .trace .node { border-radius: 50%; flex: 0 0 auto; }
+    .trace .node-lg {
+      width: 12px; height: 12px;
+      background: var(--copper);
+      box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.16);
+    }
+    .trace .rule {
+      height: 1px; flex: 1 1 auto;
+      background: linear-gradient(90deg, var(--copper) 0%, var(--gold) 55%, rgba(200, 160, 90, 0) 100%);
+    }
+    .trace .node-sm {
+      width: 7px; height: 7px;
+      background: var(--gold);
+      margin-left: -1px;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 72px 0 8px;
+      background:
+        radial-gradient(120% 90% at 30% 0%, rgba(200, 160, 90, 0.10) 0%, rgba(200, 160, 90, 0) 60%),
+        transparent;
+    }
+    .app-icon {
+      width: 104px; height: 104px;
+      border-radius: 24px;
+      display: block;
+      margin: 0 auto 28px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(200, 160, 90, 0.14);
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(2.1rem, 7vw, 3.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin: 0 0 20px;
+    }
+    .promise {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.15rem, 3.4vw, 1.5rem);
+      color: var(--gold);
+      max-width: 26ch;
+      margin: 0 auto;
+    }
+
+    .brandline {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 22px 0 0;
+    }
+    .brandline a { color: var(--muted); border-bottom-color: rgba(154, 168, 158, 0.35); }
+    .brandline a:hover { color: var(--parchment); }
+
+    section { padding: 44px 0; }
+    .divider { padding: 24px 0; }
+
+    h2 {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(1.5rem, 4.5vw, 2rem);
+      line-height: 1.2;
+      margin: 0 0 22px;
+    }
+
+    p { margin: 0 0 18px; }
+    p:last-child { margin-bottom: 0; }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 2px;
+    }
+    .features li {
+      background: var(--surface);
+      border: 1px solid rgba(200, 160, 90, 0.10);
+      padding: 20px 22px;
+      border-radius: 12px;
+    }
+    .features li h3 {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 1.12rem;
+      margin: 0 0 6px;
+      color: var(--parchment);
+    }
+    .features li p {
+      margin: 0;
+      color: #cfd8cd;
+      font-size: 1rem;
+    }
+    .features .texts {
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    /* Pullquote */
+    .pullquote {
+      text-align: center;
+      max-width: 34ch;
+      margin: 0 auto;
+    }
+    .pullquote blockquote {
+      margin: 0;
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(1.5rem, 4.6vw, 2.1rem);
+      line-height: 1.3;
+      color: var(--parchment);
+    }
+    .pullquote cite {
+      display: block;
+      margin-top: 20px;
+      font-family: var(--sans);
+      font-style: normal;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* Availability */
+    .availability {
+      text-align: center;
+      background: var(--surface);
+      border: 1px solid rgba(200, 160, 90, 0.14);
+      border-radius: 16px;
+      padding: 40px 28px;
+    }
+    .availability .kicker {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin: 0 0 10px;
+    }
+    .availability .when {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(1.4rem, 4.5vw, 1.9rem);
+      margin: 0 0 8px;
+      color: var(--parchment);
+    }
+    .availability .sub {
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin: 0;
+    }
+    .badge-slot {
+      margin-top: 24px;
+      min-height: 4px;
+    }
+
+    /* Footer */
+    footer.site {
+      padding: 8px 0 60px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    footer.site .row-links {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 26px;
+    }
+    footer.site .row-links li { margin: 0; }
+    footer.site .contact { margin: 0 0 26px; }
+    footer.site .copy { margin: 0; }
+    footer.site .trace { margin-bottom: 28px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <div class="wrap">
+        <img class="app-icon" src="/stoic/icon.svg" alt="The Stoic Journey app icon">
+        <h1>The Stoic Journey</h1>
+        <p class="promise">Two thousand years of practice for a steadier mind.</p>
+        <p class="brandline">An app by <a href="/">Treelectronic</a></p>
+      </div>
+    </header>
+
+    <div class="wrap divider">
+      <div class="trace" aria-hidden="true">
+        <span class="node node-lg"></span>
+        <span class="rule"></span>
+        <span class="node node-sm"></span>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <section aria-labelledby="what-heading">
+        <h2 id="what-heading">What it is</h2>
+        <ul class="features">
+          <li>
+            <h3>A meditation each day</h3>
+            <p>One short passage to sit with, chosen for the day. Enough to steady the morning, small enough to keep.</p>
+          </li>
+          <li>
+            <h3>Guided paths</h3>
+            <p>Ordered lessons that walk you through the core Stoic ideas, one step at a time, at whatever pace suits you.</p>
+          </li>
+          <li>
+            <h3>The complete source texts</h3>
+            <p>Read the works themselves: <span class="texts">Marcus Aurelius' Meditations, Seneca's Moral Letters, and Epictetus' Discourses and Enchiridion</span>. Free, no ads, and fully readable offline.</p>
+          </li>
+          <li>
+            <h3>An evening journal</h3>
+            <p>A quiet place to reflect at the end of the day. Your entries stay on your device unless you choose to sync them.</p>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="wrap divider">
+      <div class="trace" aria-hidden="true">
+        <span class="node node-lg"></span>
+        <span class="rule"></span>
+        <span class="node node-sm"></span>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <section class="pullquote" aria-label="A passage from Seneca">
+        <blockquote>&ldquo;We suffer more often in imagination than in reality.&rdquo;</blockquote>
+        <cite>Seneca, Letters</cite>
+      </section>
+    </div>
+
+    <div class="wrap">
+      <section aria-labelledby="avail-heading">
+        <div class="availability">
+          <p class="kicker">Coming to the App Store</p>
+          <p class="when" id="avail-heading">August 2026</p>
+          <p class="sub">For iPhone and iPad.</p>
+          <div class="badge-slot">
+            <!-- APP STORE BADGE GOES HERE — replace this comment with the "Download on the App Store" badge (linked to the store listing) once the app is live. -->
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <div class="trace" aria-hidden="true">
+        <span class="node node-lg"></span>
+        <span class="rule"></span>
+        <span class="node node-sm"></span>
+      </div>
+      <ul class="row-links">
+        <li><a href="/legal/stoic/privacy/">Privacy policy</a></li>
+        <li><a href="/legal/stoic/terms/">Terms of use</a></li>
+      </ul>
+      <p class="contact">Support and questions: <a href="mailto:scott.lepsch@gmail.com">scott.lepsch@gmail.com</a></p>
+      <p class="copy">&copy; 2026 Treelectronic</p>
+    </div>
+  </footer>
+</body>
+</html>
